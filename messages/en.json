@@ -1,0 +1,51 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "crud": "CRUD",
+    "contact": "Contact"
+  },
+  "Home": {
+    "title": "Master Next.js with Hands-on Practice",
+    "description": "Learn how to build modern web applications using the App Router, Tailwind CSS, and advanced routing. This project demonstrates core CRUD functionality and clean UI design.",
+    "button_crud": "Go to CRUD",
+    "button_learn": "Learn more"
+  },
+  "About": {
+    "title": "Everything you need to know",
+    "subtitle": "About the Project",
+    "description": "This application was built as a demonstration of modern web development practices using the latest Next.js features.",
+    "cards": {
+      "router_title": "App Router",
+      "router_desc": "Leveraging the power of Next.js 13+ App Router for nested layouts and simplified routing.",
+      "tailwind_title": "Tailwind CSS",
+      "tailwind_desc": "Styled with utility-first CSS for rapid development and highly customizable designs.",
+      "logic_title": "Client-side Logic",
+      "logic_desc": "State management using React hooks to provide a smooth and interactive user experience."
+    }
+  },
+  "Contact": {
+    "title": "Get in touch",
+    "description": "Have questions? Fill out the form below and we'll get back to you soon.",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email",
+    "message": "Message",
+    "button": "Send message"
+  },
+  "CRUD": {
+    "title": "User Management CRUD",
+    "description": "Manage users in the system using client-side state.",
+    "name": "Name",
+    "email": "Email",
+    "age": "Age",
+    "add_button": "Add User",
+    "update_button": "Update User",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "Footer": {
+    "rights": "All rights reserved."
+  }
+}

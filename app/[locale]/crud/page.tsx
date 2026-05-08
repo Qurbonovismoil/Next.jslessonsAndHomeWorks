@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from 'next-intl';
 
 interface User {
   id: number;
@@ -19,6 +20,7 @@ const initialUsers: User[] = [
 ];
 
 export default function CRUDPage() {
+  const t = useTranslations('CRUD');
   const [users, setUsers] = useState<User[]>(initialUsers);
   const [isEditing, setIsEditing] = useState<number | null>(null);
   const [formData, setFormData] = useState({ name: "", email: "", age: "" });
@@ -56,14 +58,14 @@ export default function CRUDPage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-2xl lg:text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900">User Management CRUD</h2>
-        <p className="mt-4 text-slate-600">Manage users in the system using client-side state.</p>
+        <h2 className="text-3xl font-bold tracking-tight text-slate-900">{t('title')}</h2>
+        <p className="mt-4 text-slate-600">{t('description')}</p>
       </div>
 
       <div className="mt-12 bg-white p-8 rounded-2xl shadow-sm ring-1 ring-slate-200">
         <form onSubmit={handleAddOrUpdate} className="grid grid-cols-1 gap-6 sm:grid-cols-4 items-end">
           <div className="sm:col-span-1">
-            <label className="block text-sm font-medium text-slate-700">Name</label>
+            <label className="block text-sm font-medium text-slate-700">{t('name')}</label>
             <input
               type="text"
               name="name"
@@ -74,7 +76,7 @@ export default function CRUDPage() {
             />
           </div>
           <div className="sm:col-span-1">
-            <label className="block text-sm font-medium text-slate-700">Email</label>
+            <label className="block text-sm font-medium text-slate-700">{t('email')}</label>
             <input
               type="email"
               name="email"
@@ -85,7 +87,7 @@ export default function CRUDPage() {
             />
           </div>
           <div className="sm:col-span-1">
-            <label className="block text-sm font-medium text-slate-700">Age</label>
+            <label className="block text-sm font-medium text-slate-700">{t('age')}</label>
             <input
               type="number"
               name="age"
@@ -100,7 +102,7 @@ export default function CRUDPage() {
               type="submit"
               className="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors font-semibold"
             >
-              {isEditing !== null ? "Update User" : "Add User"}
+              {isEditing !== null ? t('update_button') : t('add_button')}
             </button>
           </div>
         </form>
@@ -111,10 +113,10 @@ export default function CRUDPage() {
           <thead className="bg-slate-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Email</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Age</th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">{t('name')}</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">{t('email')}</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">{t('age')}</th>
+              <th className="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">{t('actions')}</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-slate-200">
@@ -129,13 +131,13 @@ export default function CRUDPage() {
                     onClick={() => handleEdit(user)}
                     className="text-blue-600 hover:text-blue-900"
                   >
-                    Edit
+                    {t('edit')}
                   </button>
                   <button
                     onClick={() => handleDelete(user.id)}
                     className="text-red-600 hover:text-red-900"
                   >
-                    Delete
+                    {t('delete')}
                   </button>
                 </td>
               </tr>
@@ -146,3 +148,4 @@ export default function CRUDPage() {
     </div>
   );
 }
+

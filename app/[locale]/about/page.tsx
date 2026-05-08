@@ -1,18 +1,22 @@
-export default function About() {
+import { getTranslations } from 'next-intl/server';
+
+export default async function About() {
+  const t = await getTranslations('About');
+
   const cards = [
     {
-      title: "App Router",
-      description: "Leveraging the power of Next.js 13+ App Router for nested layouts and simplified routing.",
+      title: t('cards.router_title'),
+      description: t('cards.router_desc'),
       icon: "🚀",
     },
     {
-      title: "Tailwind CSS",
-      description: "Styled with utility-first CSS for rapid development and highly customizable designs.",
+      title: t('cards.tailwind_title'),
+      description: t('cards.tailwind_desc'),
       icon: "🎨",
     },
     {
-      title: "Client-side Logic",
-      description: "State management using React hooks to provide a smooth and interactive user experience.",
+      title: t('cards.logic_title'),
+      description: t('cards.logic_desc'),
       icon: "💻",
     },
   ];
@@ -20,12 +24,12 @@ export default function About() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-2xl lg:text-center">
-        <h2 className="text-base font-semibold leading-7 text-blue-600">About the Project</h2>
+        <h2 className="text-base font-semibold leading-7 text-blue-600">{t('subtitle')}</h2>
         <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-          Everything you need to know
+          {t('title')}
         </p>
         <p className="mt-6 text-lg leading-8 text-slate-600">
-          This application was built as a demonstration of modern web development practices using the latest Next.js features.
+          {t('description')}
         </p>
       </div>
       <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -46,3 +50,4 @@ export default function About() {
     </div>
   );
 }
+
